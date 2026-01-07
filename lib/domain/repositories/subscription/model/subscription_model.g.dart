@@ -23,13 +23,15 @@ class SubscriptionModelAdapter extends TypeAdapter<SubscriptionModel> {
       whenNotify: fields[4] as DateTime,
       imageUrl: fields[2] as String?,
       notes: fields[5] as String?,
+      cost: fields[6] as double,
+      color: fields[7] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, SubscriptionModel obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -41,7 +43,11 @@ class SubscriptionModelAdapter extends TypeAdapter<SubscriptionModel> {
       ..writeByte(4)
       ..write(obj.whenNotify)
       ..writeByte(5)
-      ..write(obj.notes);
+      ..write(obj.notes)
+      ..writeByte(6)
+      ..write(obj.cost)
+      ..writeByte(7)
+      ..write(obj.color);
   }
 
   @override

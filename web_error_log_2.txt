@@ -1,0 +1,136 @@
+﻿Launching lib\main.dart on Chrome in debug mode...
+Waiting for connection from debug service on Chrome...          
+flutter : lib/i18n/st
+rings_en.g.dart:11:7:
+ Error: The 
+non-abstract class 
+'Translations' is 
+missing 
+implementations for 
+these members:
+At line:1 char:1
++ flutter run -d 
+chrome 2>&1 | 
+Out-File -Encoding 
+UTF8 
+web_error_log_2. ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (lib/i18   
+ n/string... thes    
+e members::Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+ - 
+BaseTranslations.$wip
+Try to either
+ - provide an 
+implementation,
+ - inherit an 
+implementation from 
+a superclass or 
+mixin,
+ - mark the class as 
+abstract, or
+ - provide a 
+'noSuchMethod' 
+implementation.
+class Translations 
+implements BaseTransl
+ations<AppLocale, 
+Translations> {
+      ^^^^^^^^^^^^
+../../../AppData/Loca
+l/Pub/Cache/hosted/pu
+b.dev/slang-4.11.1/li
+b/src/api/locale.dart
+:21:15: Context: 'Bas
+eTranslations.$wip' 
+is defined here.
+  dynamic get $wip 
+=> 
+WipStrings.instance;
+              ^^^^
+lib/i18n/strings_fr.g
+.dart:13:7: Error: 
+The non-abstract 
+class 
+'TranslationsFr' is 
+missing 
+implementations for 
+these members:
+ - 
+BaseTranslations.$wip
+Try to either
+ - provide an 
+implementation,
+ - inherit an 
+implementation from 
+a superclass or 
+mixin,
+ - mark the class as 
+abstract, or
+ - provide a 
+'noSuchMethod' 
+implementation.
+class TranslationsFr 
+implements 
+Translations {
+      ^^^^^^^^^^^^^^
+../../../AppData/Loca
+l/Pub/Cache/hosted/pu
+b.dev/slang-4.11.1/li
+b/src/api/locale.dart
+:21:15: Context: 'Bas
+eTranslations.$wip' 
+is defined here.
+  dynamic get $wip 
+=> 
+WipStrings.instance;
+              ^^^^
+lib/i18n/strings_ru.g
+.dart:13:7: Error: 
+The non-abstract 
+class 
+'TranslationsRu' is 
+missing 
+implementations for 
+these members:
+ - 
+BaseTranslations.$wip
+Try to either
+ - provide an 
+implementation,
+ - inherit an 
+implementation from 
+a superclass or 
+mixin,
+ - mark the class as 
+abstract, or
+ - provide a 
+'noSuchMethod' 
+implementation.
+class TranslationsRu 
+implements 
+Translations {
+      ^^^^^^^^^^^^^^
+../../../AppData/Loca
+l/Pub/Cache/hosted/pu
+b.dev/slang-4.11.1/li
+b/src/api/locale.dart
+:21:15: Context: 'Bas
+eTranslations.$wip' 
+is defined here.
+  dynamic get $wip 
+=> 
+WipStrings.instance;
+              ^^^^
+Waiting for connection from debug service on Chrome...             29.8s
+Failed to compile 
+application.

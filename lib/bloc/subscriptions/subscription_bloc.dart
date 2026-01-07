@@ -28,6 +28,7 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
         whenPay: event.whenPay,
         whenNotify: event.whenNotify,
         notes: event.notes,
+        cost: event.cost,
       );
       _subscriptionBox.put(event.id, subscription);
 
@@ -60,6 +61,7 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
         whenPay: event.whenPay,
         whenNotify: event.whenNotify,
         notes: event.notes,
+        cost: event.cost,
       );
 
       _subscriptionBox.put(event.id, subscription);

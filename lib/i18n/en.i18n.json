@@ -16,6 +16,7 @@
     "icon_descreption": "You can choose one of the suggested subscription icons or upload your own",
     "new_sub": "New subscription",
     "name": "Name",
+    "cost": "Cost",
     "pay_date": "Payment date",
     "reminder": "Reminder",
     "when_remind": "We will Remind you in",
@@ -46,7 +47,7 @@
         }
     },
     "warnings": {
-        "edit_restricted" : "Editing is not available yet"
+        "edit_restricted": "Editing is not available yet"
     },
     "notification": {
         "title": "Hurry up and disable Subscription ❗",

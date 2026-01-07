@@ -3,12 +3,13 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 part of 'strings.g.dart';
 
 // Path: <root>
 typedef TranslationsEn = Translations; // ignore: unused_element
-class Translations implements BaseTranslations<AppLocale, Translations> {
+class Translations with BaseTranslations<AppLocale, Translations> {
 	/// Returns the current translations of the given [context].
 	///
 	/// Usage:
@@ -39,36 +40,100 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	Translations $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => Translations(meta: meta ?? this.$meta);
 
 	// Translations
+
+	/// en: 'en'
 	String get lang => 'en';
+
+	/// en: 'US'
 	String get cc => 'US';
+
+	/// en: 'Welcome'
 	String get welcome => 'Welcome';
+
+	/// en: 'Keeping track of your subscriptions is now much easier'
 	String get keep_track => 'Keeping track of your subscriptions is now much easier';
+
+	/// en: 'Go'
 	String get go => 'Go';
+
+	/// en: 'My subscriptions'
 	String get my_subs => 'My subscriptions';
+
+	/// en: 'Settings'
 	String get settings => 'Settings';
+
+	/// en: 'Add'
 	String get add => 'Add';
+
+	/// en: 'There's nothing here'
 	String get kNull => 'There\'s nothing here';
+
+	/// en: 'Theme'
 	String get theme => 'Theme';
+
+	/// en: 'Icons'
 	String get icons => 'Icons';
+
+	/// en: 'Upload'
 	String get upload => 'Upload';
+
+	/// en: 'Language'
 	String get language => 'Language';
+
+	/// en: 'Subscription icon'
 	String get icon_title => 'Subscription icon';
+
+	/// en: 'You can choose one of the suggested subscription icons or upload your own'
 	String get icon_descreption => 'You can choose one of the suggested subscription icons or upload your own';
+
+	/// en: 'New subscription'
 	String get new_sub => 'New subscription';
+
+	/// en: 'Name'
 	String get name => 'Name';
+
+	/// en: 'Cost'
+	String get cost => 'Cost';
+
+	/// en: 'Payment date'
 	String get pay_date => 'Payment date';
+
+	/// en: 'Reminder'
 	String get reminder => 'Reminder';
+
+	/// en: 'We will Remind you in'
 	String get when_remind => 'We will Remind you in';
+
+	/// en: 'Notes'
 	String get notes => 'Notes';
+
+	/// en: 'Save'
 	String get save => 'Save';
+
+	/// en: 'More details'
 	String get about => 'More details';
+
+	/// en: 'Pay on $whenPay'
 	String charge_off({required Object whenPay}) => 'Pay on ${whenPay}';
+
+	/// en: 'Delete'
 	String get delete => 'Delete';
+
+	/// en: 'Edit'
 	String get edit => 'Edit';
+
+	/// en: 'Editing Mode'
 	String get editing_mode => 'Editing Mode';
+
+	/// en: 'Do you want to save changes?'
 	String get changes_alert => 'Do you want to save changes?';
+
+	/// en: 'Cancel'
 	String get cancel => 'Cancel';
+
+	/// en: 'Save'
 	String get kContinue => 'Save';
+
 	late final TranslationsRemindBeforeEn remind_before = TranslationsRemindBeforeEn._(_root);
 	late final TranslationsSubEn sub = TranslationsSubEn._(_root);
 	late final TranslationsWarningsEn warnings = TranslationsWarningsEn._(_root);
@@ -82,9 +147,17 @@ class TranslationsRemindBeforeEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Remind 1 day before'
 	String get day => 'Remind 1 day before';
+
+	/// en: 'Remind 3 days before'
 	String get three_days => 'Remind 3 days before';
+
+	/// en: 'Remind 1 week before'
 	String get week => 'Remind 1 week before';
+
+	/// en: 'Remind 1 month before'
 	String get month => 'Remind 1 month before';
 }
 
@@ -105,6 +178,8 @@ class TranslationsWarningsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Editing is not available yet'
 	String get edit_restricted => 'Editing is not available yet';
 }
 
@@ -115,7 +190,11 @@ class TranslationsNotificationEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Hurry up and disable Subscription ❗'
 	String get title => 'Hurry up and disable Subscription ❗';
+
+	/// en: 'We remind you to disable $sub before it's too late😏'
 	String body({required Object sub}) => 'We remind you to disable ${sub} before it\'s too late😏';
 }
 
@@ -126,64 +205,79 @@ class TranslationsSubRemainingEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'We Reminded you today'
 	String get today => 'We Reminded you today';
+
+	/// en: 'We'll remind you tomorrow'
 	String get tomorrow => 'We\'ll remind you tomorrow';
+
+	/// en: 'We'll remind you the day after tomorrow'
 	String get two_days => 'We\'ll remind you the day after tomorrow';
+
+	/// en: 'We'll remind you in $remainingDays days'
 	String three_four_days({required Object remainingDays}) => 'We\'ll remind you in ${remainingDays} days';
+
+	/// en: 'We'll remind you in $remainingDays days'
 	String more_days({required Object remainingDays}) => 'We\'ll remind you in ${remainingDays} days';
+
+	/// en: 'Reminder expired'
 	String get expired => 'Reminder expired';
 }
 
-/// Flat map(s) containing all translations.
+/// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
+///
+/// The Dart AOT compiler has issues with very large switch statements,
+/// so the map is split into smaller functions (512 entries each).
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
-		switch (path) {
-			case 'lang': return 'en';
-			case 'cc': return 'US';
-			case 'welcome': return 'Welcome';
-			case 'keep_track': return 'Keeping track of your subscriptions is now much easier';
-			case 'go': return 'Go';
-			case 'my_subs': return 'My subscriptions';
-			case 'settings': return 'Settings';
-			case 'add': return 'Add';
-			case 'kNull': return 'There\'s nothing here';
-			case 'theme': return 'Theme';
-			case 'icons': return 'Icons';
-			case 'upload': return 'Upload';
-			case 'language': return 'Language';
-			case 'icon_title': return 'Subscription icon';
-			case 'icon_descreption': return 'You can choose one of the suggested subscription icons or upload your own';
-			case 'new_sub': return 'New subscription';
-			case 'name': return 'Name';
-			case 'pay_date': return 'Payment date';
-			case 'reminder': return 'Reminder';
-			case 'when_remind': return 'We will Remind you in';
-			case 'notes': return 'Notes';
-			case 'save': return 'Save';
-			case 'about': return 'More details';
-			case 'charge_off': return ({required Object whenPay}) => 'Pay on ${whenPay}';
-			case 'delete': return 'Delete';
-			case 'edit': return 'Edit';
-			case 'editing_mode': return 'Editing Mode';
-			case 'changes_alert': return 'Do you want to save changes?';
-			case 'cancel': return 'Cancel';
-			case 'kContinue': return 'Save';
-			case 'remind_before.day': return 'Remind 1 day before';
-			case 'remind_before.three_days': return 'Remind 3 days before';
-			case 'remind_before.week': return 'Remind 1 week before';
-			case 'remind_before.month': return 'Remind 1 month before';
-			case 'sub.remaining.today': return 'We Reminded you today';
-			case 'sub.remaining.tomorrow': return 'We\'ll remind you tomorrow';
-			case 'sub.remaining.two_days': return 'We\'ll remind you the day after tomorrow';
-			case 'sub.remaining.three_four_days': return ({required Object remainingDays}) => 'We\'ll remind you in ${remainingDays} days';
-			case 'sub.remaining.more_days': return ({required Object remainingDays}) => 'We\'ll remind you in ${remainingDays} days';
-			case 'sub.remaining.expired': return 'Reminder expired';
-			case 'warnings.edit_restricted': return 'Editing is not available yet';
-			case 'notification.title': return 'Hurry up and disable Subscription ❗';
-			case 'notification.body': return ({required Object sub}) => 'We remind you to disable ${sub} before it\'s too late😏';
-			default: return null;
-		}
+		return switch (path) {
+			'lang' => 'en',
+			'cc' => 'US',
+			'welcome' => 'Welcome',
+			'keep_track' => 'Keeping track of your subscriptions is now much easier',
+			'go' => 'Go',
+			'my_subs' => 'My subscriptions',
+			'settings' => 'Settings',
+			'add' => 'Add',
+			'kNull' => 'There\'s nothing here',
+			'theme' => 'Theme',
+			'icons' => 'Icons',
+			'upload' => 'Upload',
+			'language' => 'Language',
+			'icon_title' => 'Subscription icon',
+			'icon_descreption' => 'You can choose one of the suggested subscription icons or upload your own',
+			'new_sub' => 'New subscription',
+			'name' => 'Name',
+			'cost' => 'Cost',
+			'pay_date' => 'Payment date',
+			'reminder' => 'Reminder',
+			'when_remind' => 'We will Remind you in',
+			'notes' => 'Notes',
+			'save' => 'Save',
+			'about' => 'More details',
+			'charge_off' => ({required Object whenPay}) => 'Pay on ${whenPay}',
+			'delete' => 'Delete',
+			'edit' => 'Edit',
+			'editing_mode' => 'Editing Mode',
+			'changes_alert' => 'Do you want to save changes?',
+			'cancel' => 'Cancel',
+			'kContinue' => 'Save',
+			'remind_before.day' => 'Remind 1 day before',
+			'remind_before.three_days' => 'Remind 3 days before',
+			'remind_before.week' => 'Remind 1 week before',
+			'remind_before.month' => 'Remind 1 month before',
+			'sub.remaining.today' => 'We Reminded you today',
+			'sub.remaining.tomorrow' => 'We\'ll remind you tomorrow',
+			'sub.remaining.two_days' => 'We\'ll remind you the day after tomorrow',
+			'sub.remaining.three_four_days' => ({required Object remainingDays}) => 'We\'ll remind you in ${remainingDays} days',
+			'sub.remaining.more_days' => ({required Object remainingDays}) => 'We\'ll remind you in ${remainingDays} days',
+			'sub.remaining.expired' => 'Reminder expired',
+			'warnings.edit_restricted' => 'Editing is not available yet',
+			'notification.title' => 'Hurry up and disable Subscription ❗',
+			'notification.body' => ({required Object sub}) => 'We remind you to disable ${sub} before it\'s too late😏',
+			_ => null,
+		};
 	}
 }
-

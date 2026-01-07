@@ -10,6 +10,12 @@ class ThemeCubit extends Cubit<ThemeData> {
   static final _lightTheme = AppTheme.lightTheme;
   static final _darkTheme = AppTheme.darkTheme;
 
+  Future<void> toggleTheme() async {
+    final newMode = !_repository.isDark;
+    await _repository.setDarkMode(newMode);
+    emit(newMode ? _darkTheme : _lightTheme);
+  }
+
   void enableTheme() {
     final isDark = _repository.isDark;
     emit(isDark ? _darkTheme : _lightTheme);

@@ -6,5 +6,6 @@ class HiveService {
     await Hive.initFlutter();
 
     Hive.registerAdapter(SubscriptionModelAdapter());
+    await Hive.openBox('settings');
   }
 }

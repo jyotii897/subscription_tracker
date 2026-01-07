@@ -15,4 +15,9 @@ class ThemeColors {
   static const Color textIconPrimaryExtraLow = ThemePalette.white10;
 
   static const Color appBarDefault = ThemePalette.secondary;
+
+  static const List<Color> netflixGradient = [Color(0xFFE50914), Color(0xFFB81D24)];
+  static const List<Color> spotifyGradient = [Color(0xFF1DB954), Color(0xFF191414)];
+  static const List<Color> youtubeGradient = [Color(0xFFFF0000), Color(0xFF282828)];
+  static const List<Color> defaultGradient = [Color(0xFF4c669f), Color(0xFF3b5998), Color(0xFF192f6a)];
 }

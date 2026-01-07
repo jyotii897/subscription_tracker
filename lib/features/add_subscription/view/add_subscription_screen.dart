@@ -25,6 +25,14 @@ class _AddSubscriptionScreenState extends State<AddSubscriptionScreen> {
   final icons = DataConstants.subIcons;
   final iconLabels = DataConstants.subIconLabels;
 
+  final templates = [
+    {'name': 'Netflix', 'icon': 'netflix.svg'},
+    {'name': 'Spotify', 'icon': 'spotify.svg'},
+    {'name': 'YouTube', 'icon': 'youtube.svg'},
+    {'name': 'Amazon Prime', 'icon': 'amazon-prime.svg'},
+    {'name': 'Disney+', 'icon': 'disney.svg'},
+  ];
+
   String? imageUrl;
 
   int? notifyBeforeDays;
@@ -34,9 +42,17 @@ class _AddSubscriptionScreenState extends State<AddSubscriptionScreen> {
   final _subscriptionBloc = getIt<SubscriptionBloc>();
 
   final _nameController = TextEditingController();
+  final _costController = TextEditingController();
   final _notificationController = TextEditingController();
   final _notesController = TextEditingController();
   final _dateController = TextEditingController();
+
+  void _applyTemplate(Map<String, String> template) {
+    _nameController.text = template['name']!;
+    imageUrl = 'assets/images/services/${template['icon']}';
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -55,8 +71,42 @@ class _AddSubscriptionScreenState extends State<AddSubscriptionScreen> {
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
-                      spacing: 10,
+                      spacing: 15,
                       children: [
+                         // Quick Add Templates
+                        SizedBox(
+                          height: 80,
+                          child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: templates.length,
+                            separatorBuilder: (_, __) => SizedBox(width: 15),
+                            itemBuilder: (context, index) {
+                              final template = templates[index];
+                              return GestureDetector(
+                                onTap: () => _applyTemplate(template),
+                                child: Container(
+                                  width: 60,
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context).cardColor,
+                                    borderRadius: BorderRadius.circular(15),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black12,
+                                        blurRadius: 5,
+                                      )
+                                    ],
+                                  ),
+                                  padding: EdgeInsets.all(10),
+                                  child: SvgPicture.asset(
+                                    'assets/images/services/${template['icon']}',
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        
                         Row(
                           spacing: 10,
                           children: [
@@ -66,8 +116,8 @@ class _AddSubscriptionScreenState extends State<AddSubscriptionScreen> {
                               },
                               radius: 15,
                               child: Container(
-                                height: 130,
-                                width: 130,
+                                height: 100,
+                                width: 100,
                                 decoration: BoxDecoration(
                                   color: (Theme.of(context).brightness ==
                                           Brightness.dark)
@@ -77,13 +127,16 @@ class _AddSubscriptionScreenState extends State<AddSubscriptionScreen> {
                                 ),
                                 child: (imageUrl != null &&
                                         imageUrl!.contains('.svg'))
-                                    ? SvgPicture.asset(imageUrl!)
+                                    ? Padding(
+                                      padding: const EdgeInsets.all(20.0),
+                                      child: SvgPicture.asset(imageUrl!),
+                                    )
                                     : (imageUrl != null)
                                         ? Image.file(
                                             File(imageUrl!),
                                             fit: BoxFit.fill,
                                           )
-                                        : Icon(SnIcons.circle_add),
+                                        : Icon(SnIcons.circle_add, size: 40),
                               ),
                             ),
                             Expanded(
@@ -94,12 +147,12 @@ class _AddSubscriptionScreenState extends State<AddSubscriptionScreen> {
                                     t.icon_title,
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headlineSmall,
+                                        .titleMedium,
                                   ),
                                   Text(
                                     t.icon_descreption,
                                     style:
-                                        Theme.of(context).textTheme.labelSmall,
+                                        Theme.of(context).textTheme.bodySmall,
                                     maxLines: 4,
                                   )
                                 ],
@@ -111,6 +164,11 @@ class _AddSubscriptionScreenState extends State<AddSubscriptionScreen> {
                           controller: _nameController,
                           labelText: t.name,
                           maxLength: 16,
+                        ),
+                        SnTextField(
+                          controller: _costController,
+                          labelText: t.cost,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
                         ),
                         SnTextField(
                           controller: _dateController,
@@ -165,6 +223,8 @@ class _AddSubscriptionScreenState extends State<AddSubscriptionScreen> {
                     DateTime whenNotify = whenPay!.subtract(
                       Duration(days: notifyBeforeDays!),
                     );
+                    
+                    double cost = double.tryParse(_costController.text.replaceAll(',', '.')) ?? 0.0;
 
                     _subscriptionBloc.add(
                       CreateSubscription(
@@ -174,6 +234,7 @@ class _AddSubscriptionScreenState extends State<AddSubscriptionScreen> {
                         whenPay: whenPay!,
                         imageUrl: imageUrl,
                         notes: _notesController.text,
+                        cost: cost,
                       ),
                     );
 

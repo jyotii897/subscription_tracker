@@ -16,6 +16,7 @@
     "icon_descreption": "Vous pouvez choisir l’une des icônes d’abonnement proposées ou téléverser la vôtre",
     "new_sub": "Nouvel abonnement",
     "name": "Nom",
+    "cost": "Coût",
     "pay_date": "Date de paiement",
     "reminder": "Rappel",
     "when_remind": "Rappeler",
@@ -46,7 +47,7 @@
         }
     },
     "warnings": {
-        "edit_restricted" : "L'édition n'est pas encore disponible"
+        "edit_restricted": "L'édition n'est pas encore disponible"
     },
     "notification": {
         "title": "Dépêchez-vous de désactiver l’abonnement ❗",

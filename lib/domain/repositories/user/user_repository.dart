@@ -1,19 +1,18 @@
-import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:hive_flutter/hive_flutter.dart';
 class UserRepository {
-  final SharedPreferences preferences;
+  final Box box;
 
-  UserRepository({required this.preferences});
+  UserRepository({required this.box});
 
   Future<void> setWelcomeViewed(bool viewed) async {
-    await preferences.setBool('welcomeViewed', viewed);
+    await box.put('welcomeViewed', viewed);
   }
 
-  bool get isViewed => preferences.getBool('welcomeViewed') ?? false;
+  bool get isViewed => box.get('welcomeViewed', defaultValue: false);
 
   Future<void> setDarkMode(bool isDarkMode) async {
-    await preferences.setBool('isDarkMode', isDarkMode);
+    await box.put('isDarkMode', isDarkMode);
   }
 
-  bool get isDark => preferences.getBool('isDarkMode') ?? false;
+  bool get isDark => box.get('isDarkMode', defaultValue: false);
 }

@@ -1,3 +1,4 @@
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sub_notifier_app/i18n/strings.g.dart';
@@ -27,11 +28,18 @@ class SnNavigationBar extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: Colors.transparent, // Important for glassmorphism
       body: navigationShell,
-      bottomNavigationBar: BottomAppBar(
-        height: 56,
-        padding: EdgeInsets.zero,
-        child: Row(
+      extendBody: true, // Extend body behind navbar
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+        child: BackdropFilter(
+          filter:ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+          child: Container(
+             color: (Theme.of(context).brightness == Brightness.dark ? Colors.black : Colors.white).withOpacity(0.6),
+             height: 60,
+             padding: EdgeInsets.zero,
+             child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -100,6 +108,8 @@ class SnNavigationBar extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ),
+  ),
+);
   }
 }

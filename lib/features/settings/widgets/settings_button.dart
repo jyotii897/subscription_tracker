@@ -75,9 +75,9 @@ class _SettingsButtonState extends State<SettingsButton> {
   }
 
   Future<void> _getStatus() async {
-    final prefs = _userRepository.preferences;
+    final box = _userRepository.box;
 
-    final value = prefs.getBool(widget.preferenceKey) ?? false;
+    final value = box.get(widget.preferenceKey, defaultValue: false);
     if (widget.disabledIcon != null) {
       setState(() {
         isActive = value;
@@ -86,7 +86,7 @@ class _SettingsButtonState extends State<SettingsButton> {
   }
 
   Future<void> _saveStatus(bool value) async {
-    final prefs = _userRepository.preferences;
-    await prefs.setBool(widget.preferenceKey, value);
+    final box = _userRepository.box;
+    await box.put(widget.preferenceKey, value);
   }
 }

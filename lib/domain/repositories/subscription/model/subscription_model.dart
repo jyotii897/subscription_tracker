@@ -11,6 +11,8 @@ class SubscriptionModel {
     required this.whenNotify,
     this.imageUrl,
     this.notes,
+    this.cost = 0.0,
+    this.color = 0xFF000000,
   });
 
   @HiveField(0)
@@ -27,4 +29,10 @@ class SubscriptionModel {
   final DateTime whenNotify;
   @HiveField(5)
   final String? notes;
+
+  @HiveField(6)
+  final double cost;
+
+  @HiveField(7)
+  final int color;
 }

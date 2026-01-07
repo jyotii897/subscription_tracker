@@ -1,3 +1,4 @@
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
 class SnAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -13,10 +14,17 @@ class SnAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      leading: leading,
-      centerTitle: true,
-      title: title,
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+        child: AppBar(
+          backgroundColor: (Theme.of(context).appBarTheme.backgroundColor ?? Colors.white).withOpacity(0.5),
+          elevation: 0,
+          leading: leading,
+          centerTitle: true,
+          title: title,
+        ),
+      ),
     );
   }
 

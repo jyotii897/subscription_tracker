@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -10,7 +11,7 @@ import 'package:slang/generated.dart';
 import 'strings.g.dart';
 
 // Path: <root>
-class TranslationsFr implements Translations {
+class TranslationsFr with BaseTranslations<AppLocale, Translations> implements Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsFr({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
@@ -53,6 +54,7 @@ class TranslationsFr implements Translations {
 	@override String get icon_descreption => 'Vous pouvez choisir l’une des icônes d’abonnement proposées ou téléverser la vôtre';
 	@override String get new_sub => 'Nouvel abonnement';
 	@override String get name => 'Nom';
+	@override String get cost => 'Coût';
 	@override String get pay_date => 'Date de paiement';
 	@override String get reminder => 'Rappel';
 	@override String get when_remind => 'Rappeler';
@@ -131,56 +133,59 @@ class _TranslationsSubRemainingFr implements TranslationsSubRemainingEn {
 	@override String get expired => 'Rappel expiré';
 }
 
-/// Flat map(s) containing all translations.
+/// The flat map containing all translations for locale <fr>.
 /// Only for edge cases! For simple maps, use the map function of this library.
+///
+/// The Dart AOT compiler has issues with very large switch statements,
+/// so the map is split into smaller functions (512 entries each).
 extension on TranslationsFr {
 	dynamic _flatMapFunction(String path) {
-		switch (path) {
-			case 'lang': return 'fr';
-			case 'cc': return 'FR';
-			case 'welcome': return 'Bienvenue';
-			case 'keep_track': return 'Suivre vos abonnements est maintenant beaucoup plus facile';
-			case 'go': return 'Aller';
-			case 'my_subs': return 'Mes abonnements';
-			case 'settings': return 'Paramètres';
-			case 'add': return 'Ajouter';
-			case 'kNull': return 'Il n\'y a rien ici';
-			case 'theme': return 'Thème';
-			case 'icons': return 'Icônes';
-			case 'upload': return 'Téléverser';
-			case 'language': return 'Langue';
-			case 'icon_title': return 'Icône d’abonnement';
-			case 'icon_descreption': return 'Vous pouvez choisir l’une des icônes d’abonnement proposées ou téléverser la vôtre';
-			case 'new_sub': return 'Nouvel abonnement';
-			case 'name': return 'Nom';
-			case 'pay_date': return 'Date de paiement';
-			case 'reminder': return 'Rappel';
-			case 'when_remind': return 'Rappeler';
-			case 'notes': return 'Notes';
-			case 'save': return 'Enregistrer';
-			case 'about': return 'Plus de détails';
-			case 'charge_off': return ({required Object whenPay}) => 'Débit : ${whenPay}';
-			case 'delete': return 'Supprimer';
-			case 'edit': return 'Modifier';
-			case 'editing_mode': return 'Mode édition';
-			case 'changes_alert': return 'Voulez-vous appliquer les modifications ?';
-			case 'cancel': return 'Annuler';
-			case 'kContinue': return 'Continuer';
-			case 'remind_before.day': return 'Rappeler 1 jour avant';
-			case 'remind_before.three_days': return 'Rappeler 3 jours avant';
-			case 'remind_before.week': return 'Rappeler 1 semaine avant';
-			case 'remind_before.month': return 'Rappeler 1 mois avant';
-			case 'sub.remaining.today': return 'Nous vous avons rappelé aujourd’hui';
-			case 'sub.remaining.tomorrow': return 'Nous vous rappellerons demain';
-			case 'sub.remaining.two_days': return 'Nous vous rappellerons après-demain';
-			case 'sub.remaining.three_four_days': return ({required Object remainingDays}) => 'Nous vous rappellerons dans ${remainingDays} jours';
-			case 'sub.remaining.more_days': return ({required Object remainingDays}) => 'Nous vous rappellerons dans ${remainingDays} jours';
-			case 'sub.remaining.expired': return 'Rappel expiré';
-			case 'warnings.edit_restricted': return 'L\'édition n\'est pas encore disponible';
-			case 'notification.title': return 'Dépêchez-vous de désactiver l’abonnement ❗';
-			case 'notification.body': return ({required Object sub}) => 'Nous vous rappelons de désactiver ${sub} avant qu’il ne soit trop tard 😏';
-			default: return null;
-		}
+		return switch (path) {
+			'lang' => 'fr',
+			'cc' => 'FR',
+			'welcome' => 'Bienvenue',
+			'keep_track' => 'Suivre vos abonnements est maintenant beaucoup plus facile',
+			'go' => 'Aller',
+			'my_subs' => 'Mes abonnements',
+			'settings' => 'Paramètres',
+			'add' => 'Ajouter',
+			'kNull' => 'Il n\'y a rien ici',
+			'theme' => 'Thème',
+			'icons' => 'Icônes',
+			'upload' => 'Téléverser',
+			'language' => 'Langue',
+			'icon_title' => 'Icône d’abonnement',
+			'icon_descreption' => 'Vous pouvez choisir l’une des icônes d’abonnement proposées ou téléverser la vôtre',
+			'new_sub' => 'Nouvel abonnement',
+			'name' => 'Nom',
+			'cost' => 'Coût',
+			'pay_date' => 'Date de paiement',
+			'reminder' => 'Rappel',
+			'when_remind' => 'Rappeler',
+			'notes' => 'Notes',
+			'save' => 'Enregistrer',
+			'about' => 'Plus de détails',
+			'charge_off' => ({required Object whenPay}) => 'Débit : ${whenPay}',
+			'delete' => 'Supprimer',
+			'edit' => 'Modifier',
+			'editing_mode' => 'Mode édition',
+			'changes_alert' => 'Voulez-vous appliquer les modifications ?',
+			'cancel' => 'Annuler',
+			'kContinue' => 'Continuer',
+			'remind_before.day' => 'Rappeler 1 jour avant',
+			'remind_before.three_days' => 'Rappeler 3 jours avant',
+			'remind_before.week' => 'Rappeler 1 semaine avant',
+			'remind_before.month' => 'Rappeler 1 mois avant',
+			'sub.remaining.today' => 'Nous vous avons rappelé aujourd’hui',
+			'sub.remaining.tomorrow' => 'Nous vous rappellerons demain',
+			'sub.remaining.two_days' => 'Nous vous rappellerons après-demain',
+			'sub.remaining.three_four_days' => ({required Object remainingDays}) => 'Nous vous rappellerons dans ${remainingDays} jours',
+			'sub.remaining.more_days' => ({required Object remainingDays}) => 'Nous vous rappellerons dans ${remainingDays} jours',
+			'sub.remaining.expired' => 'Rappel expiré',
+			'warnings.edit_restricted' => 'L\'édition n\'est pas encore disponible',
+			'notification.title' => 'Dépêchez-vous de désactiver l’abonnement ❗',
+			'notification.body' => ({required Object sub}) => 'Nous vous rappelons de désactiver ${sub} avant qu’il ne soit trop tard 😏',
+			_ => null,
+		};
 	}
 }
-

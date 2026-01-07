@@ -1,0 +1,20 @@
+Analyzing sub_notifier_app...
+
+  error - lib\bloc\subscriptions\subscription_bloc.dart:30:9 - The argument for the named parameter 'whenNotify' was already specified. Try removing one of the named arguments, or correcting one of the names to reference a different named parameter. - duplicate_named_argument
+  error - lib\bloc\subscriptions\subscription_bloc.dart:64:9 - The argument for the named parameter 'whenNotify' was already specified. Try removing one of the named arguments, or correcting one of the names to reference a different named parameter. - duplicate_named_argument
+  error - lib\features\add_subscription\view\add_subscription_screen.dart:171:27 - The named parameter 'keyboardType' isn't defined. Try correcting the name to an existing named parameter's name, or defining a named parameter with the name 'keyboardType'. - undefined_named_parameter
+  error - lib\features\change_language\view\change_language_screen.dart:25:52 - There's no constant named 'ru' in 'AppLocale'. Try correcting the name to the name of an existing constant, or defining a constant named 'ru'. - undefined_enum_constant
+  error - lib\features\home\view\home_screen.dart:109:47 - The named parameter 'id' is required, but there's no corresponding argument. Try adding the required argument. - missing_required_argument
+  error - lib\features\home\view\home_screen.dart:109:66 - Too many positional arguments: 0 expected, but 1 found. Try removing the extra positional arguments, or specifying the name for named arguments. - extra_positional_arguments_could_be_named
+  error - lib\i18n\strings_fr.g.dart:14:7 - Missing concrete implementation of 'getter class Translations with BaseTranslations<AppLocale, Translations>.cost'. Try implementing the missing method, or make the class abstract. - non_abstract_class_inherits_abstract_member
+  error - test\widget_test.dart:16:35 - The name 'MyApp' isn't a class. Try correcting the name to match an existing class. - creation_with_non_type
+warning - lib\features\home\widgets\spending_chart.dart:4:8 - Unused import: 'package:sub_notifier_app/theme/theme.dart'. Try removing the import directive. - unused_import
+warning - lib\features\settings\view\settings_screen.dart:21:9 - The value of the field '_userRepository' isn't used. Try removing the field, or using it. - unused_field
+warning - lib\routes\router.dart:6:8 - Unused import: 'package:sub_notifier_app/features/onboarding/view/onboarding_screen.dart'. Try removing the import directive. - unused_import
+   info - lib\features\home\view\home_screen.dart:139:55 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - lib\features\home\view\home_screen.dart:216:20 - Unnecessary use of 'toList' in a spread. Try removing the invocation of 'toList'. - unnecessary_to_list_in_spreads
+   info - lib\features\home\widgets\spending_chart.dart:26:44 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - lib\widgets\sn_appbar.dart:21:92 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - lib\widgets\sn_navigation_bar.dart:39:101 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+
+16 issues found.

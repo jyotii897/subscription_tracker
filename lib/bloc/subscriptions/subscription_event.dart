@@ -24,6 +24,7 @@ class CreateSubscription extends SubscriptionEvent {
     required this.whenPay,
     this.imageUrl,
     this.notes,
+    this.cost = 0.0,
   });
 
   final String id;
@@ -32,6 +33,7 @@ class CreateSubscription extends SubscriptionEvent {
   final DateTime whenPay;
   final DateTime whenNotify;
   final String? notes;
+  final double cost;
 
   @override
   List<Object?> get props => [
@@ -52,6 +54,7 @@ class EditSubscription extends SubscriptionEvent {
     required this.whenPay,
     this.imageUrl,
     this.notes,
+    this.cost = 0.0,
   });
 
   final String id;
@@ -60,6 +63,7 @@ class EditSubscription extends SubscriptionEvent {
   final DateTime whenPay;
   final DateTime whenNotify;
   final String? notes;
+  final double cost;
 
   @override
   List<Object?> get props => [id, name, notes];

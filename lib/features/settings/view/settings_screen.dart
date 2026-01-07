@@ -38,8 +38,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             disabledIcon: SnIcons.moon,
             text: t.theme,
             onTap: () {
-              _userRepository.setDarkMode(!_userRepository.isDark);
-              _themeCubit.enableTheme();
+              _themeCubit.toggleTheme();
             },
           ),
           SettingsButton(

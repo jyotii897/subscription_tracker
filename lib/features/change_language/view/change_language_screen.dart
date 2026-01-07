@@ -22,10 +22,10 @@ class ChangeLanguageScreen extends StatelessWidget {
           children: [
             LanguageButton(
               onTap: () {
-                LocaleSettings.setLocale(AppLocale.ru);
+                LocaleSettings.setLocale(AppLocale.hi);
                 router.go('/splash');
               },
-              language: 'Русский',
+              language: 'Hindi',
             ),
             LanguageButton(
               onTap: () {

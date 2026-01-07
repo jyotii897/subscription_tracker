@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sub_notifier_app/app.dart';
 import 'package:sub_notifier_app/i18n/strings.g.dart';
 import 'package:sub_notifier_app/locator/di.dart';
@@ -16,12 +15,9 @@ void main() async {
       LocaleSettings.useDeviceLocale();
       NotiService().init();
 
-      final SharedPreferences preferences =
-          await SharedPreferences.getInstance();
-
       await HiveService.init();
 
-      setupLocator(preferences: preferences);
+      await setupLocator();
 
       Bloc.observer = TalkerBlocObserver(
           settings: TalkerBlocLoggerSettings(
