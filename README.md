@@ -3,7 +3,6 @@
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 ![Hive](https://img.shields.io/badge/Hive-Database-orange?style=for-the-badge)
-![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)
 
 A powerful, beautiful, and interactive Flutter application to track your subscriptions, manage costs, and get notified before payments.
 
