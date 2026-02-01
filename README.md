@@ -85,7 +85,7 @@ lib/
 ├── services/       # Infrastructure (Hive, Notifications)
 ├── theme/          # App Styling and Colors
 └── widgets/        # Reusable Components
-```
+
 
 ---
 
